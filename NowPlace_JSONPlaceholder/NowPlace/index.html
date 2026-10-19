@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NowPlace</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header><div><h1>📍 NowPlace</h1><p>Compartilhe o agora, descubra quem está por perto.</p></div></header>
+    <section class="panel" aria-labelledby="publicarTitulo">
+      <h2 id="publicarTitulo">Criar um Now</h2>
+      <label for="usuario">Seu nome</label><input id="usuario" maxlength="60" placeholder="Digite seu nome" autocomplete="name">
+      <label for="descricao">O que você está fazendo?</label><textarea id="descricao" maxlength="220" rows="3" placeholder="Ex.: Estudando programação no SENAI"></textarea>
+      <p id="etapa" class="info">1. Ligue a câmera e fotografe o ambiente.</p>
+      <video id="video" autoplay playsinline muted></video>
+      <div class="botoes"><button id="ligar">Ligar câmera</button><button id="capturar" disabled>Capturar ambiente</button><button id="desligar" class="secundario" disabled>Desligar câmera</button></div>
+      <div class="previas"><div><strong>Ambiente</strong><img id="ambiente" alt="Prévia do ambiente" hidden></div><div><strong>Selfie</strong><img id="selfie" alt="Prévia da selfie" hidden></div></div>
+      <p id="local" class="info">Localização obtida ao publicar.</p>
+      <div class="botoes"><button id="publicar" disabled>Publicar Now</button><button id="reiniciar" class="secundario">Nova publicação</button></div>
+    </section>
+    <section class="panel" aria-labelledby="feedTitulo">
+      <h2 id="feedTitulo">Nows próximos</h2><p id="regra" class="info"></p>
+      <label for="raio">Raio de busca (km)</label><input id="raio" type="number" min="1" max="100" value="5">
+      <button id="buscar">Buscar Nows</button><div id="feed" class="feed" aria-live="polite"></div>
+    </section>
+    <p id="mensagem" role="status" aria-live="polite"></p>
+  </main>
+  <canvas id="canvas" hidden></canvas>
+</body>
+</html>
